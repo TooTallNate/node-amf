@@ -10,6 +10,36 @@ var assert = require('assert');
 
 describe('read()', function () {
 
+  it('should read a Number value', function () {
+    var data = new Buffer('00 40 94 e4 7e 6b 3f e9 fb'.replace(/ /g, ''), 'hex');
+    var obj = amf.read(data, 0);
+    assert.equal(1337.123456, obj);
+  });
+
+  it('should read a Boolean `true` value', function () {
+    var data = new Buffer('01 01'.replace(/ /g, ''), 'hex');
+    var obj = amf.read(data, 0);
+    assert.equal(true, obj);
+  });
+
+  it('should read a Boolean `false` value', function () {
+    var data = new Buffer('01 00'.replace(/ /g, ''), 'hex');
+    var obj = amf.read(data, 0);
+    assert.equal(false, obj);
+  });
+
+  it('should read a String value', function () {
+    var data = new Buffer('02 00 05 68 65 6c 6c 6f'.replace(/ /g, ''), 'hex');
+    var obj = amf.read(data, 0);
+    assert.equal('hello', obj);
+  });
+
+  it('should read an Object value', function () {
+    var data = new Buffer('03 00 03 66 6f 6f 02 00 03 62 61 72 00 00 09'.replace(/ /g, ''), 'hex');
+    var obj = amf.read(data, 0);
+    assert.deepEqual({ foo: 'bar' }, obj);
+  });
+
   it('should read a Person object', function () {
     var data = fs.readFileSync(path.resolve(__dirname, 'fixtures', 'person.amf0'));
     var obj = amf.read(data, 0);
