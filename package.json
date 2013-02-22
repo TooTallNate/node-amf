@@ -1,6 +1,6 @@
 {
   "name": "amf",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "\"Action Message Format\" read() and write() functions for Buffers",
   "main": "index.js",
   "scripts": {

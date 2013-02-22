@@ -1,0 +1,6 @@
+0.0.1 / 2013-02-21
+==================
+
+ - Initial release
+ - Only a partially implemented `read()` function so far, no `write()`...
+ - Only version 0 supported so far, no version 3...
