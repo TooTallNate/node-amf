@@ -1,7 +1,7 @@
 node-amf
 ========
 ### "Action Message Format" read() and write() functions for Buffers
-[![Build Status](https://secure.travis-ci.org/TooTallNate/node-amf.png)](http://travis-ci.org/TooTallNate/node-amf)
+[![Build Status](https://travis-ci.org/TooTallNate/node-amf.png?branch=master)](https://travis-ci.org/TooTallNate/node-amf)
 
 This module reads and writes AMF (Action Message Format, commonly used with
 Adobe products) data types with Buffer instances.
