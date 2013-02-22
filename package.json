@@ -1,7 +1,7 @@
 {
   "name": "amf",
   "version": "0.0.0",
-  "description": "Read and write AMF objects to/from Buffers",
+  "description": "\"Action Message Format\" read() and write() functions for Buffers",
   "main": "index.js",
   "scripts": {
     "test": "mocha --reporter spec"
