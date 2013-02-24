@@ -1,11 +1,14 @@
 node-amf
 ========
-### "Action Message Format" read() and write() functions for Buffers
+### "[Action Message Format][AMF]" read() and write() functions for Buffers
 [![Build Status](https://travis-ci.org/TooTallNate/node-amf.png?branch=master)](https://travis-ci.org/TooTallNate/node-amf)
 
-This module reads and writes AMF (Action Message Format, commonly used with
-Adobe products) data types with Buffer instances.
+This module reads and writes AMF ([Action Message Format][AMF], commonly used
+with Adobe products) data types to/from node.js `Buffer` instances.
 
+For example, the [FLV][node-flv] container format by Adobe encodes its "metadata"
+packets with AMF data. This module can decode those packets back into JavaScript
+values.
 
 Installation
 ------------
@@ -19,6 +22,8 @@ $ npm install amf
 
 Example
 -------
+
+Here's an example of reading an ECMA Object from a Buffer:
 
 ``` javascript
 var amf = require('amf');
@@ -38,3 +43,6 @@ API
 ---
 
 Coming soon!
+
+[AMF]: http://en.wikipedia.org/wiki/Action_Message_Format
+[node-flv]: https://github.com/TooTallNate/node-flv
