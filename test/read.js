@@ -71,4 +71,16 @@ describe('read()', function () {
     assert.equal(138064, obj.filesize);
   });
 
+  it('should read a "strict array"', function () {
+    var data = fs.readFileSync(path.resolve(__dirname, 'fixtures', 'amf0-strict-array.bin'));
+
+    var array = amf.read(data, 0);
+    assert(Array.isArray(array));
+    assert.equal(4, array.length);
+    assert.equal('a', array[0]);
+    assert.equal('b', array[1]);
+    assert.equal('c', array[2]);
+    assert.equal('d', array[3]);
+  });
+
 });
