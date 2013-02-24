@@ -41,6 +41,18 @@ describe('read()', function () {
     assert.deepEqual({ foo: 'bar' }, obj);
   });
 
+  it('should read the `null` value', function () {
+    var data = fs.readFileSync(path.resolve(__dirname, 'fixtures', 'amf0-null.bin'));
+    var obj = amf.read(data, 0);
+    assert.strictEqual(null, obj);
+  });
+
+  it('should read the `undefined` value', function () {
+    var data = fs.readFileSync(path.resolve(__dirname, 'fixtures', 'amf0-undefined.bin'));
+    var obj = amf.read(data, 0);
+    assert.strictEqual(undefined, obj);
+  });
+
   it('should read a Person object', function () {
     var data = fs.readFileSync(path.resolve(__dirname, 'fixtures', 'person.amf0'));
     var obj = amf.read(data, 0);
