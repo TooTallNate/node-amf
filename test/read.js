@@ -80,6 +80,13 @@ describe('read()', function () {
     assert.deepEqual({ baz: null, foo: 'bar' }, obj);
   });
 
+  it('should read a "typed object"', function () {
+    var data = fs.readFileSync(path.resolve(__dirname, 'fixtures', 'amf0-typed-object.bin'));
+
+    var obj = amf.read(data, 0);
+    assert.deepEqual({ baz: null, foo: 'bar', __className__: 'org.amf.ASClass' }, obj);
+  });
+
   describe('FLV metadata', function () {
 
     it('should read a basic "name" and "value" from an FLV metadata packet', function () {
