@@ -6,6 +6,7 @@
 var fs = require('fs');
 var amf = require('../');
 var path = require('path');
+var util = require('util');
 var assert = require('assert');
 
 describe('read()', function () {
@@ -81,6 +82,14 @@ describe('read()', function () {
     assert.equal('b', array[1]);
     assert.equal('c', array[2]);
     assert.equal('d', array[3]);
+  });
+
+  it('should read a Date value', function () {
+    var data = fs.readFileSync(path.resolve(__dirname, 'fixtures', 'amf0-date.bin'));
+
+    var date = amf.read(data, 0);
+    assert(util.isDate(date));
+    assert.equal(1590796800000, date.getTime());
   });
 
 });
