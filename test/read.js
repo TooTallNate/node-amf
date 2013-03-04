@@ -12,9 +12,9 @@ var assert = require('assert');
 describe('read()', function () {
 
   it('should read a Number value', function () {
-    var data = new Buffer('00 40 94 e4 7e 6b 3f e9 fb'.replace(/ /g, ''), 'hex');
+    var data = fs.readFileSync(path.resolve(__dirname, 'fixtures', 'amf0-number.bin'));
     var obj = amf.read(data, 0);
-    assert.equal(1337.123456, obj);
+    assert.equal(3.5, obj);
   });
 
   it('should read a Boolean `true` value', function () {
