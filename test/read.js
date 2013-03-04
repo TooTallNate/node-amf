@@ -53,6 +53,15 @@ describe('read()', function () {
     assert.strictEqual(undefined, obj);
   });
 
+  it('should read a reference object', function () {
+    var data = fs.readFileSync(path.resolve(__dirname, 'fixtures', 'amf0-ref-test.bin'));
+    var obj = amf.read(data, 0);
+    assert(obj[0] === obj[1]);
+    assert.deepEqual(Object.keys(obj), [ '0', '1' ]);
+    assert.equal(obj[0].bar, 3.14);
+    assert.equal(obj[0].foo, 'baz');
+  });
+
   it('should read a "strict array"', function () {
     var data = fs.readFileSync(path.resolve(__dirname, 'fixtures', 'amf0-strict-array.bin'));
 
