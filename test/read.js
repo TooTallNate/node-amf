@@ -18,13 +18,13 @@ describe('read()', function () {
   });
 
   it('should read a Boolean `true` value', function () {
-    var data = new Buffer('01 01'.replace(/ /g, ''), 'hex');
+    var data = fs.readFileSync(path.resolve(__dirname, 'fixtures', 'amf0-boolean-true.bin'));
     var obj = amf.read(data, 0);
     assert.equal(true, obj);
   });
 
   it('should read a Boolean `false` value', function () {
-    var data = new Buffer('01 00'.replace(/ /g, ''), 'hex');
+    var data = fs.readFileSync(path.resolve(__dirname, 'fixtures', 'amf0-boolean-false.bin'));
     var obj = amf.read(data, 0);
     assert.equal(false, obj);
   });
