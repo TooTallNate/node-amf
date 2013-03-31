@@ -70,4 +70,13 @@ describe('write()', function () {
     assert.deepEqual(data, buf);
   });
 
+  it('should write an ECMA Array', function () {
+    var data = fs.readFileSync(path.resolve(__dirname, 'fixtures', 'amf0-ecma-ordinal-array.bin'));
+    var buf = new Buffer(data.length);
+
+    var array = ['a', 'b', 'c', 'd'];
+    amf.write(buf, array, 0);
+    assert.deepEqual(data, buf);
+  });
+
 });
