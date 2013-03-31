@@ -60,4 +60,14 @@ describe('write()', function () {
     assert.deepEqual(data, buf);
   });
 
+  it('should write a reference object', function () {
+    var data = fs.readFileSync(path.resolve(__dirname, 'fixtures', 'amf0-ref-test.bin'));
+    var buf = new Buffer(data.length);
+
+    var inner = { bar: 3.14, foo: 'baz' };
+    var outer = { 0: inner, 1: inner };
+    amf.write(buf, outer, 0);
+    assert.deepEqual(data, buf);
+  });
+
 });
