@@ -46,4 +46,18 @@ describe('write()', function () {
     assert.deepEqual(data, buf);
   });
 
+  it('should write the `null` value', function () {
+    var data = fs.readFileSync(path.resolve(__dirname, 'fixtures', 'amf0-null.bin'));
+    var buf = new Buffer(data.length);
+    amf.write(buf, null, 0);
+    assert.deepEqual(data, buf);
+  });
+
+  it('should write the `undefined` value', function () {
+    var data = fs.readFileSync(path.resolve(__dirname, 'fixtures', 'amf0-undefined.bin'));
+    var buf = new Buffer(data.length);
+    amf.write(buf, undefined, 0);
+    assert.deepEqual(data, buf);
+  });
+
 });
