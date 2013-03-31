@@ -30,9 +30,9 @@ describe('read()', function () {
   });
 
   it('should read a String value', function () {
-    var data = new Buffer('02 00 05 68 65 6c 6c 6f'.replace(/ /g, ''), 'hex');
+    var data = fs.readFileSync(path.resolve(__dirname, 'fixtures', 'amf0-string.bin'));
     var obj = amf.read(data, 0);
-    assert.equal('hello', obj);
+    assert.equal('this is a テスト', obj);
   });
 
   it('should read an Object value', function () {
