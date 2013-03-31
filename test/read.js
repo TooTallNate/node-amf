@@ -36,9 +36,9 @@ describe('read()', function () {
   });
 
   it('should read an Object value', function () {
-    var data = new Buffer('03 00 03 66 6f 6f 02 00 03 62 61 72 00 00 09'.replace(/ /g, ''), 'hex');
+    var data = fs.readFileSync(path.resolve(__dirname, 'fixtures', 'amf0-object.bin'));
     var obj = amf.read(data, 0);
-    assert.deepEqual({ foo: 'bar' }, obj);
+    assert.deepEqual({ bar: 3.14, foo: 'baz' }, obj);
   });
 
   it('should read the `null` value', function () {
