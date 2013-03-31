@@ -62,6 +62,19 @@ describe('read()', function () {
     assert.equal(obj[0].foo, 'baz');
   });
 
+  it('should read an EMCA Array', function () {
+    var data = fs.readFileSync(path.resolve(__dirname, 'fixtures', 'amf0-ecma-ordinal-array.bin'));
+
+    var array = amf.read(data, 0);
+    assert(Array.isArray(array));
+    assert.equal(4, array.length);
+    assert.deepEqual(Object.keys(array), [ '0', '1', '2', '3' ]);
+    assert.equal('a', array[0]);
+    assert.equal('b', array[1]);
+    assert.equal('c', array[2]);
+    assert.equal('d', array[3]);
+  });
+
   it('should read a "strict array"', function () {
     var data = fs.readFileSync(path.resolve(__dirname, 'fixtures', 'amf0-strict-array.bin'));
 
