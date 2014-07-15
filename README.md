@@ -1,7 +1,7 @@
 node-amf
 ========
 ### "[Action Message Format][AMF]" read() and write() functions for Buffers
-[![Build Status](https://travis-ci.org/TooTallNate/node-amf.png?branch=master)](https://travis-ci.org/TooTallNate/node-amf)
+[![Build Status](https://travis-ci.org/TooTallNate/node-amf.svg?branch=master)](https://travis-ci.org/TooTallNate/node-amf)
 
 This module reads and writes AMF ([Action Message Format][AMF], commonly used
 with Adobe products) data types to/from node.js `Buffer` instances.
